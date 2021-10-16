@@ -1,6 +1,13 @@
+import {useState, useEffect} from "react"
 import CardComponent from "../components/CardComponent";
-
 const ProductsContainer = () => {
+    const [cart, setCart] = useState ([]);
+    const [products, setProducts] = useState([]);
+    useEffect(async () => {
+        let data = await fetch("https://api.mercadolibre.com/sites/MLA/search?q=remeras estampadas");
+        let response = await data.json();
+        console.log(response.results);
+    })
     return (
         <div className="container">
             <div className="row">
