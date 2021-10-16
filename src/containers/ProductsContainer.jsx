@@ -5,7 +5,7 @@ const ProductsContainer = () => {
   const [products, setProducts] = useState([]);
   useEffect(async () => {
     let data = await fetch(
-      "https://api.mercadolibre.com/sites/MLA/search?q=remera de rock"
+      "https://api.mercadolibre.com/sites/MLA/search?q=celulares samsung"
     );
     let response = await data.json();
     setProducts(response.results);
