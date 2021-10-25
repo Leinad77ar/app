@@ -1,10 +1,16 @@
-
+import { useContext } from "react/cjs/react.development"
+import { EcommerceContext } from "../context/EcommerceContext"
 import { CartComponent } from "./CartComponent";
 
 const NavComponent = () => {
-    // const { cart } = useContext(EcommerceContext)
-
-    return (
+    const { fetchData } = useContext(EcommerceContext)
+    const inputKeyPress = (e) => {
+        // console.log(e.key)
+        if (e.key === "Enter"){
+            fetchData(e.target.value);
+        }
+    }
+        return (
         <div>
             <nav className="navbar navbar-expand-lg navbar-light bg-light">
                 <div className="container-fluid">
@@ -24,10 +30,10 @@ const NavComponent = () => {
                     <a className="nav-link disabled" href="#disabled" tabIndex="-1" aria-disabled="true">Disabled</a>
                     </li>
                 </ul>
-                <form className="d-flex">
-                    <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
-                    <button className="btn btn-outline-success" type="submit">Search</button>
-                </form>
+                <div className="d-flex">
+                    <input onKeyPress={(e) => inputKeyPress(e)} id="navbar_input" className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
+                    <button onClick={() => fetchData(document.getElementById("navbar_input").value)} className="btn btn-outline-success" type="button">Search</button>
+                </div>
                 </div>
             </div>
             <CartComponent />
