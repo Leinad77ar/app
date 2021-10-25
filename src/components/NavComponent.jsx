@@ -1,4 +1,9 @@
+
+import { CartComponent } from "./CartComponent";
+
 const NavComponent = () => {
+    // const { cart } = useContext(EcommerceContext)
+
     return (
         <div>
             <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -25,6 +30,7 @@ const NavComponent = () => {
                 </form>
                 </div>
             </div>
+            <CartComponent />
             </nav>
         </div>
     )
